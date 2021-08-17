@@ -1,9 +1,17 @@
 <mat-toolbar color="primary" class="background-primary">
   <span><img src="/assets/images/logo.png" height=30 width=41></span>
-  <a mat-button class="text-floral-white" routerLink="/home"><span class="fa fa-home fa-lg"></span> Home</a>
+  <a mat-button class="text-floral-white" routerLink="/home" routerLinkActive="active">
+    <span class="fa fa-home fa-lg"></span> Home
+  </a>
   <a mat-button class="text-floral-white"><span class="fa fa-info fa-lg"></span> About</a>
-  <a mat-button class="text-floral-white" routerLink="/menu"><span class="fa fa-list fa-lg"></span> Menu</a>
-  <a mat-button class="text-floral-white"><span class="fa fa-address-card fa-lg"></span> Contact</a>
+  <a mat-button class="text-floral-white" routerLink="/menu" routerLinkActive="active">
+    <span class="fa fa-list fa-lg"></span> 
+    Menu
+  </a>
+  <a mat-button class="text-floral-white" routerLink="/contact" routerLinkActive="active">
+    <span class="fa fa-address-card fa-lg"></span> 
+    Contact
+  </a>
 </mat-toolbar>
 
 <div class="container jumbotron"
