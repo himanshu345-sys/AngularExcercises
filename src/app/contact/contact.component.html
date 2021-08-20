@@ -38,4 +38,61 @@
     </div>
   </div>
 
+  <div fxFlex fxFlexOffset="20px" class="form-size">
+    <h3>Send us your feedback</h3>
+    <form novalidate [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
+      <p>
+        <mat-form-field class="half-width">
+          <input type="text" formControlName="firstname" matInput placeholder="First Name">
+          <mat-error *ngIf="feedbackForm.get('firstname').hasError('required') && feedbackForm.get('firstname').touched">
+            First Name is required
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="half-width">
+          <input type="text" formControlName="lastname" matInput placeholder="Last Name">
+          <mat-error *ngIf="feedbackForm.get('lastname').hasError('required') && feedbackForm.get('lastname').touched">
+            Last Name is required
+          </mat-error>
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field class="half-width">
+          <input type="text" formControlName="telnum" matInput placeholder="Telephone">
+          <mat-error *ngIf="feedbackForm.get('telnum').hasError('required') && feedbackForm.get('telnum').touched">
+            Telephone number is required
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="half-width">
+          <input type="text" formControlName="email" matInput placeholder="Email">
+          <mat-error *ngIf="feedbackForm.get('email').hasError('required') && feedbackForm.get('email').touched">
+            Email Address is required
+          </mat-error>
+        </mat-form-field>
+      </p>
+
+      <table class="form-size">
+        <td>
+          <mat-slide-toggle formControlName="agree">May we contact you?</mat-slide-toggle>
+        </td>
+
+        <td>
+          <mat-select placeholder="How?" formControlName="contacttype">
+            <mat-option *ngFor="let ctype of contactType" [value]="ctype">
+              {{ctype}}
+            </mat-option>
+          </mat-select>
+        </td>
+      </table>
+
+      <p>
+        <mat-form-field class="full-width">
+          <textarea matInput formControlName="message" placeholder="Your Feedback"></textarea>
+        </mat-form-field>
+      </p>
+
+      <button type="submit" mat-button class="background-primary text-floral-white">Submit</button>
+    </form>
+  </div>
+
 </div>

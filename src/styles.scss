@@ -1,5 +1,6 @@
 @import '_variables';
 @import '../node_modules/font-awesome/scss/font-awesome';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 $lt-gray: #ddd;
 $background-dark: #512DA8;
@@ -33,9 +34,4 @@ $divider-color:        #BDBDBD;
   flex: 1 1 auto;
 }
 
-.container
-{
-    margin: 20px;
-    display: flex;
-}
 
