@@ -19,6 +19,8 @@ export class DishdetailComponent implements OnInit {
   previous: string;
   dishfeedbackForm: FormGroup;
   dishComment: Comment;
+  errMsg:string;
+  dishCopy:Dish;
 
   formErrors = {
     'author': '',
@@ -69,8 +71,9 @@ export class DishdetailComponent implements OnInit {
       )
       .subscribe((dish) => {
         this.dish = dish;
+        this.dishCopy = dish;
         this.setPrevNext(dish.id);
-      });
+      },errMsg => this.errMsg = <any>errMsg);
   }
 
   setPrevNext(dishId: string) {
@@ -113,6 +116,11 @@ export class DishdetailComponent implements OnInit {
       this.dishComment.rating = this.dishfeedbackForm.value.rating;
 
       this.dish.comments.push(this.dishComment);
+      this.dishService.putDish(this.dishCopy)
+      .subscribe(dish => {
+        this.dish = dish; this.dishCopy = dish;
+      },
+      errmess => { this.dish = null; this.dishCopy = null; this.errMsg = <any>errmess; });
     }
 
     this.dishfeedbackForm.reset({
